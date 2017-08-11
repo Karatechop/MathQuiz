@@ -1,0 +1,188 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Final project</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="shortcut icon" href="/favicon.ico">
+        
+       
+		
+				
+    </head>
+    <body>
+
+        <div class="container">
+			<div id="courseAndName">
+				<div id="course">HES CSCI E-3 (15118) Introduction to Web Programming Using JavaScript. Fall 2016. Final project.</div>
+				
+				<div id="myname" class="">by Boris Rugel</div>
+			</div>
+			<hr>
+		
+			<div id="localhost" class="alert alert-info">
+					<strong>Attention!</strong> This app loads a JSON file from project dir. Make sure you run it from 'localhost'.
+				</div>
+		
+			<div class="jumbotron">
+				<h1>Math quiz</h1>
+			  	<p>This is a simple quiz application, developed as a Final project for Harvard Extension School CSCI E-3 (15118) Introduction to Web Programming Using JavaScript fall 2016 course.</p>
+				<p>Click "Start quiz" to use the app or "Project details" to read about techniques used and implementation details</p>
+			  	<p>
+				  	<a id="startQuizButton" class="btn btn-primary btn-lg">Start quiz</a>
+					<a id="projectDetailsButton" class="btn btn-warning btn-lg">Project details</a>
+				</p>
+			</div>
+		
+			<div id="reStartQuizButton">
+					<p><a class="btn btn-warning">Restart quiz</a></p>
+            </div>
+			
+            <div id="quizAndButtons" class="well well-sm">		
+				<div id="quizBox">
+
+					<div id="quizQuestionBox"></div>
+					<div id="radioMessage" class="alert alert-dismissible alert-warning">Please, provide an answer</div>
+					<div id="quizResultsBox"></div>				
+				
+				</div>
+			
+				<div id="nextBackShowButtons">
+					<p>
+						<a id="backQuestionButton" class="btn btn-primary">Previous question</a>
+						<a id="nextQuestionButton" class="btn btn-primary">Next question</a>
+						<a id="showResultsButton" class="btn btn-success">Display results</a>
+					</p>
+				</div>
+			</div>
+			
+			<div id="projectDetails" class="well well-sm">
+				
+                <div class="pd">
+                    <h2>Final project implementation details</h2>
+                        <hr>				
+                        <p>Use below hyperlinks to read about particular techniques</p>
+                    <h3>Table of contents</h3>
+                        <ul>
+                            <li><a href="#dataStructure">Creating and handling a data structure</a></li>
+                            <li><a href="#closures">Closures</a></li>
+                            <li><a href="#ajax">AJAX</a></li>
+                            <li><a href="#localStorage">LocalStorage</a></li>
+                            <li><a href="#events">Capturing and handling events</a></li>
+                            <li><a href="#elementCreation">DOM element creation, deletion or modification</a></li>
+                            <li><a href="#DOMtraversal">DOMtraversal</a></li>
+                            <li><a href="#formValidation">Form validation</a></li>
+                            <li><a href="#effects">Effects</a></li>
+                        </ul>
+				</div>
+                
+                <div class="pd">
+                    <h3 id="dataStructure">Creating and handling a data structure</h3>
+                        <p>Application code organization follows Revealing Module Pattern, all variables and methods are stored in hashes</p>
+                        <p>All questions are stored in an array. Each question with its options and correct answer index is stored in an object</p>
+                        <p>This objects are accessed by application methods in order to create quiz functionalities</p>
+                        <p>You might want to review :</p>	
+                        <ul>
+                            <li>quiz/math_quiz.json file</li>
+                            <li>publicMethods.loadQuizDataAfterAjaxCall</li>
+                        </ul>
+                </div>
+                    
+                <div class="pd">
+                    <h3 id="closures">Closures</h3>
+                        <p>Application code organization follows Revealing Module Pattern in order to simulate 'private/public'-like behaviour of variables and functions. This pattern relies on closures to achieve this.</p>
+                        <p>Closures are used in multiple methods to meet multiple goals. Most notable examples would be - making sure none of the quiz logic starts before quiz data is loaded, iteration over a collection of nodes</p>
+                        <p>Methods you might want to review :</p>
+                            <ul>
+                                <li>publicMethods.loadQuizDataAfterAjaxCall</li>
+                                <li>privateGeneralUtil.iterateCollection</li>
+                            </ul>
+                </div>
+                    
+                <div class="pd">
+                    <h3 id="ajax">AJAX</h3>
+                        <p>Application loads quiz data from a JSON file in project directory though an AJAX call.</p>
+                        <p>Method you might want to review :</p>
+                            <ul>
+                                <li>publicMethods.loadQuizDataAfterAjaxCall</li>
+                            </ul>
+                </div>    
+                    
+                <div class="pd">
+                    <h3 id="localStorage">LocalStorage</h3>
+                        <p>LocalStorage is used to store variables that track record of user's progression through the quiz. This allows user to return back as many quiz questions as possible and see or change previous answers.</p>
+                        <p>Methods you might want to review :</p>
+                            <ul>
+                                <li>privateGeneralUtil.checkedRadioIndex</li><li>privateGeneralUtil.setCheckedOnRadio</li>
+                            </ul>
+                </div>
+                    
+                <div class="pd">
+                    <h3 id="events">Capturing and handling events</h3>
+                        <p>Application methods are executed as call-back subroutine when "load" event on window object is handled.</p>
+                        <p>All app navigation relys on handling "click" events on a variety of buttons</p>
+                        <p>To read about handling 'mouseenter' and 'mouseleave' events go to <a href="#DOMtraversal">DOM traversal</a> section.</p>
+                        <p>Method and function you might want to review :</p>
+                            <ul>
+                                <li>privateGeneralUtil.traverseAndStyle</li>
+                                <li>Window object "load" event call-back function</li>
+                            </ul>
+                </div>
+                
+                <div class="pd">
+                    <h3 id="elementCreation">DOM element creation, deletion or modification</h3>
+                        <p>Quiz questions as well as quiz results are displayed dynamically. All necessary elements are created, properly appended among themselves and then appended to the DOM in one go with no unnecessary reflows caused.</p>
+                        <p>Multiple methods use this technique. Here are some examples you might want to review :</p>
+                            <ul>
+                                <li>privateDisplayUtil.displayQuestionRadios</li><li>privateDisplayUtil.displayQuizScore</li>	<li>privateDisplayUtil.displayQuizAnswers</li>
+                            </ul>
+				</div>
+                
+                <div class="pd">
+                    <h3 id="DOMtraversal">DOM traversal</h3>
+                        <p>Quiz results are displayed in panels. One panel per question. "User" answer and "correct" answer are marked. 'Mouseenter' and 'mouseleave' events on these panels trigger DOM traversal routine that changes the way "user" and "correct" answers are displayed.</p>
+                        <p>Methods you might want to review :</p>
+                            <ul>
+                                <li>privateGeneralUtil.traverseAndStyle</li>
+                                <li>privateDisplayUtil.displayQuizAnswers</li>
+                            </ul>
+                </div>
+                    
+				<div class="pd">
+				    <h3 id="formValidation">Form validation</h3>
+                        <p>When questions are displayed, question options are presented as form radios. If no radio is checked user cannot proceed to the next question and a warning message appears.</p>
+                        <p>Method you might want to review :</p>
+                            <ul>
+                                <li>publicMethods.buttonScript</li>
+                            </ul>
+                </div>
+                    
+				<div class="pd">
+				    <h3 id="effects">Effects</h3>
+                        <p>Combination of JavaScript and CSS is used to create a fade-in/fade-out effect of quiz elements when navigation buttons are used. The script makes sure necessary updates to appropriate variable are made after fade-out of currently displayed quiz question and before next question fades-in</p>
+                        <p>Method you might want to review :</p>
+                            <ul>
+                                <li>privateGeneralUtil.fadeOutUpdateFadeIn</li>
+                            </ul>
+
+                </div>
+                
+                <div id="backToTop" class="pd">
+                    <a href="#courseAndName">Back to top</a>
+                </div>	
+                
+			</div>
+            
+            
+            
+            
+		</div>
+		
+	<script type="text/javascript" src="js/quiz.js"></script>	
+    </body>
+</html>

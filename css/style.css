@@ -1,0 +1,72 @@
+#localhost {
+    display: none
+}
+
+#courseAndName {
+	display: block
+}
+
+#course {
+    display: inline;
+	text-align: left
+}
+
+#myname{
+    float:right;
+    display: inline;
+    text-align: right
+}
+
+#quizAndButtons{	
+    display: none
+}
+
+#quizBox {
+	opacity:0;
+	transition: opacity 1s
+}
+
+#quizBox.fadein {
+	opacity:1;
+	transition: opacity 1s
+}
+
+#startQuizButton {
+	display: inline
+}
+
+#reStartQuizButton {
+	display: none
+}
+
+#backQuestionButton {
+	display: none
+}
+
+#nextQuestionButton {
+	display: none
+}
+
+#showResultsButton {
+	display: none
+}
+
+#radioMessage {
+	display: none
+}
+
+#quizResultsBox {
+	display: none
+}
+
+#projectDetails {
+	display: none
+}
+
+#backToTop {
+	text-align: right;
+}
+
+.pd {
+    display: block;
+}
