@@ -45,7 +45,7 @@
 ## Capturing and handling events
 * Application methods are executed as call-back subroutine when "load" event on window object is handled.
 * All app navigation relys on handling "click" events on a variety of buttons
-* To read about handling 'mouseenter' and 'mouseleave' events in "DOM traversal" section.
+* You can read about handling 'mouseenter' and 'mouseleave' events in "DOM traversal" section.
 * Methods you might want to review :
     1. privateGeneralUtil.traverseAndStyle
     2. Window object "load" event call-back function
