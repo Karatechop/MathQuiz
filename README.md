@@ -16,7 +16,7 @@
 * Form validation
 * Effects
 
-##Creating and handling a data structure
+## Creating and handling a data structure
 * Application code organization follows Revealing Module Pattern, all variables and methods are stored in hashes.
 * All questions are stored in an array. Each question with its options and correct answer index is stored in an object.
 * These objects are accessed by application methods in order to create quiz functionalities.
